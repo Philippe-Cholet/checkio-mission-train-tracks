@@ -37,7 +37,7 @@ OPPOSITE = dict(zip('NSWE', 'SNEW'))
 
 
 # @kurosawa4434: Put whatever you want in visual_data, then no need to change asserts. Is that great?!
-def checker(answer, result):
+def checker(answer, user_result):
     try:
         visual_data = '...'
         # "Same" code as initial_code checker plus some data for visualization.
