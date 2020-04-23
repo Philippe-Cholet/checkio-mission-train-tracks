@@ -110,8 +110,8 @@ train_tracks([4, 6, 5, 3, 1, 3, 3, 4],  # rows
         <li>8 &le; len(rows) &le; 50 and 8 &le; len(columns) &le; 50.</li>
         <li>all(0 &le; row &lt; len(rows) and 0 &le; col &lt; len(columns)
                 for row, col in constraints)</li>
-        <li>all(value &le; {'E', 'N', 'S', 'W'} and 1 &le; len(value) &le; 2
-                for value in constraints.values())</li>
-        <li>{value for value in constraints.values() if len(value) == 1} == {start, end}</li>
+        <li>all(dirs &le; {'E', 'N', 'S', 'W'} and 1 &le; len(dirs) &le; 2
+                for dirs in constraints.values())</li>
+        <li>{coords for coords, dirs in constraints.items() if len(dirs) == 1} == {start, end}</li>
     </ul>
 </p>
