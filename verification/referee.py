@@ -36,11 +36,9 @@ MOVES = {'N': (-1, 0), 'S': (1, 0), 'W': (0, -1), 'E': (0, 1)}
 OPPOSITE = dict(zip('NSWE', 'SNEW'))
 
 
-# @kurosawa4434: Put whatever you want in visual_data, then no need to change asserts. Is that great?!
 def checker(answer, user_result):
     try:
-        visual_data = '...'
-        # "Same" code as initial_code checker plus some data for visualization.
+        # Nearly the same code as initial_code checker.
         rows, columns, start, end, constraints = answer
         start, end, constraints = tuple(start), tuple(end), eval(constraints)
         assert isinstance(user_result, str) and user_result, \
@@ -85,8 +83,9 @@ def checker(answer, user_result):
                     (f'{row_or_col} {i}: you passed by {res_counts[i]} cells '
                      f'instead of {count}.')
     except AssertionError as error:
-        return False, (error.args[0], visual_data)
-    return True, ('Great!', visual_data)
+        return False, (error.args[0], None)
+    return True, ('Great!', None)
+    # Last place was to give data for js visualization, but finally not needed.
 
 
 # JSON keys can not be tuples. "eval" change big string to the wanted dict.
